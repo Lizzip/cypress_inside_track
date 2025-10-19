@@ -1,0 +1,17 @@
+{
+  "name": "cypress_inside_track",
+  "version": "1.0.0",
+  "description": "UI Testing of Inside Track using Cypress",
+  "main": "index.js",
+  "scripts": {
+    "tests": "cypress run --browser chrome --spec \"cypress/e2e/tests/*.cy.js\"",
+    "fixture-tests": "cypress run --browser chrome --spec \"cypress/e2e/tests/use_fixtures.cy.js\"",
+    "cypress": "cypress open"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^15.5.0"
+  }
+}
