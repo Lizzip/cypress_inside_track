@@ -10,5 +10,6 @@ module.exports = defineConfig({
         }
       })
     },
+    baseUrl: "https://lizzip.net/",
   },
 });

@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "tests": "cypress run --browser chrome --spec \"cypress/e2e/tests/*.cy.js\"",
+    "tests-electron": "cypress run --spec \"cypress/e2e/tests/*.cy.js\"",
+    "tests-firefox": "cypress run --browser firefox --spec \"cypress/e2e/tests/*.cy.js\"",
+    "tests-edge": "cypress run --browser edge --spec \"cypress/e2e/tests/*.cy.js\"",
     "fixture-tests": "cypress run --browser chrome --spec \"cypress/e2e/tests/use_fixtures.cy.js\"",
+    "negative-tests": "cypress run --browser chrome --spec \"cypress/e2e/tests/negative.cy.js\"",
     "cypress": "cypress open"
   },
   "keywords": [],
@@ -13,5 +17,10 @@
   "license": "ISC",
   "dependencies": {
     "cypress": "^15.5.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.38.0",
+    "eslint": "^9.38.0",
+    "globals": "^16.4.0"
   }
 }
