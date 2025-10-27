@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-import mainPage from '../pages/mainPage'
+import mainPage from '../pages/main_page'
 
 describe('Negative Testing', () => {
 
