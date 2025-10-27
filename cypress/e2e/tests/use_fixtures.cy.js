@@ -23,16 +23,14 @@ describe('Test Inside Track using fixtured data', () => {
             mainPage.insertOdds(this.odds.unfavourable_1)
             mainPage.clickCalculate()
 
-            // Verify results values are as expected
-            mainPage.verifyResultsText(['31.39%', '20.93%', '15.7%', '12.56%', '10.46%', '8.97%'])
+            const expectedValues = ['31.39%', '20.93%', '15.7%', '12.56%', '10.46%', '8.97%']
 
-            mainPage.getAllSummaryText().forEach(summary => {
-                            
-                // Check text has danger class
-                summary.should('have.class', 'text-danger')
-
-                // Check text is red
-                summary.should('have.css', 'color', 'rgb(169, 68, 66)')
+            // Verify each summary has the expected value, class, and colour 
+            expectedValues.forEach((val, idx) => {
+                let summary = mainPage.getSummaryText(idx+1)
+                summary.should('have.text', val)
+                .and('have.class', 'text-danger')
+                .and('have.css', 'color', 'rgb(169, 68, 66)')
             })
         })
 
@@ -41,16 +39,14 @@ describe('Test Inside Track using fixtured data', () => {
             mainPage.insertOdds(this.odds.unfavourable_2)
             mainPage.clickCalculate()
 
-            // Verify results values are as expected
-            mainPage.verifyResultsText(['14.29%', '19.05%', '14.29%', '19.05%', '14.29%', '19.05%'])
-            
-            mainPage.getAllSummaryText().forEach(summary => {
-                            
-                // Check text has danger class
-                summary.should('have.class', 'text-danger')
+            const expectedValues = ['14.29%', '19.05%', '14.29%', '19.05%', '14.29%', '19.05%']
 
-                // Check text is red
-                summary.should('have.css', 'color', 'rgb(169, 68, 66)')
+            // Verify each summary has the expected value, class, and colour 
+            expectedValues.forEach((val, idx) => {
+                let summary = mainPage.getSummaryText(idx+1)
+                summary.should('have.text', val)
+                .and('have.class', 'text-danger')
+                .and('have.css', 'color', 'rgb(169, 68, 66)')
             })
         })
     })
@@ -62,16 +58,14 @@ describe('Test Inside Track using fixtured data', () => {
             mainPage.insertOdds(this.odds.favourable_1)
             mainPage.clickCalculate()
 
-            // Verify results values are as expected
-            mainPage.verifyResultsText(['11.08%', '9.38%', '17.42%', '24.38%', '20.32%', '17.42%'])
+            const expectedValues = ['11.08%', '9.38%', '17.42%', '24.38%', '20.32%', '17.42%']
 
-            mainPage.getAllSummaryText().forEach(summary => {
-                            
-                // Check text has danger class
-                summary.should('have.class', 'text-success')
-
-                // Check text is red
-                summary.should('have.css', 'color', 'rgb(60, 118, 61)')
+            // Verify each summary has the expected value, class, and colour 
+            expectedValues.forEach((val, idx) => {
+                let summary = mainPage.getSummaryText(idx+1)
+                summary.should('have.text', val)
+                .and('have.class', 'text-success')
+                .and('have.css', 'color', 'rgb(60, 118, 61)')
             })
         })
 
@@ -80,16 +74,14 @@ describe('Test Inside Track using fixtured data', () => {
             mainPage.insertOdds(this.odds.favourable_2)
             mainPage.clickCalculate()
 
-            // Verify results values are as expected
-            mainPage.verifyResultsText(['18.52%', '14.81%', '18.52%', '14.81%', '14.81%', '18.52%'])
+            const expectedValues = ['18.52%', '14.81%', '18.52%', '14.81%', '14.81%', '18.52%']
 
-            mainPage.getAllSummaryText().forEach(summary => {
-                            
-                // Check text has danger class
-                summary.should('have.class', 'text-success')
-
-                // Check text is red
-                summary.should('have.css', 'color', 'rgb(60, 118, 61)')
+            // Verify each summary has the expected value, class, and colour 
+            expectedValues.forEach((val, idx) => {
+                let summary = mainPage.getSummaryText(idx+1)
+                summary.should('have.text', val)
+                .and('have.class', 'text-success')
+                .and('have.css', 'color', 'rgb(60, 118, 61)')
             })
         })
 

@@ -34,9 +34,9 @@ describe('Test Inside Track', () => {
         it('should default to empty inputs', () => {
 
             // Check all horse inputs are empty on first page load
-            mainPage.getAllHorseInputs().forEach(input => {
-                input.should('have.value', '')
-            })
+            for(let i = 1; i <= mainPage.rows; i++){
+                mainPage.getHorseInput(i).should('have.value', '')
+            }
 
             // Insert text into some of the horse inputs
             mainPage.getHorseInput(1).type('12')
@@ -59,16 +59,14 @@ describe('Test Inside Track', () => {
             mainPage.insertOdds(['4', '5', '10', '7', '7', '50'])
             mainPage.clickCalculate()
 
-            // Verify results values are as expected
-            mainPage.verifyResultsText(['27.5%', '22.92%', '12.5%', '17.19%', '17.19%', '2.7%'])
-
-            mainPage.getAllSummaryText().forEach(summary => {
-
-                // Check text has success class
-                summary.should('have.class', 'text-success')
-
-                // Check text is green
-                summary.should('have.css', 'color', 'rgb(60, 118, 61)')
+            const expectedValues = ['27.5%', '22.92%', '12.5%', '17.19%', '17.19%', '2.7%']
+            
+            // Verify each summary has the expected value, class, and colour 
+            expectedValues.forEach((val, idx) => {
+                let summary = mainPage.getSummaryText(idx+1)
+                summary.should('have.text', val)
+                .and('have.class', 'text-success')
+                .and('have.css', 'color', 'rgb(60, 118, 61)')
             })
         })
 
@@ -78,16 +76,14 @@ describe('Test Inside Track', () => {
             mainPage.insertOdds(['2', '3', '8', '4', '8', '12'])
             mainPage.clickCalculate()
 
-            // Verify results values are as expected
-            mainPage.verifyResultsText(['30.79%', '23.1%', '10.26%', '18.48%', '10.26%', '7.11%'])
+            const expectedValues = ['30.79%', '23.1%', '10.26%', '18.48%', '10.26%', '7.11%']
             
-            mainPage.getAllSummaryText().forEach(summary => {
-                
-                // Check text has danger class
-                summary.should('have.class', 'text-danger')
-
-                // Check text is red
-                summary.should('have.css', 'color', 'rgb(169, 68, 66)')
+            // Verify each summary has the expected value, class, and colour 
+            expectedValues.forEach((val, idx) => {
+                let summary = mainPage.getSummaryText(idx+1)
+                summary.should('have.text', val)
+                .and('have.class', 'text-danger')
+                .and('have.css', 'color', 'rgb(169, 68, 66)')
             })
         })
 
@@ -106,7 +102,17 @@ describe('Test Inside Track', () => {
                 mainPage.clickCalculate()
 
                 // Expect the total sum of the summary values to be 100
-                mainPage.verifySumOfSummaryText(100)
+                let total = 0;
+
+                for(let i = 1; i <= mainPage.rows; i++){
+                    mainPage.getSummaryText(i).invoke('text').then(txt => {
+                        total += parseFloat(txt.slice(0,-1))
+
+                        if(i == mainPage.rows){
+                            cy.wrap(Math.round(total)).should('eq', 100)
+                        }
+                    })
+                }
             })
         })
 
@@ -121,7 +127,17 @@ describe('Test Inside Track', () => {
                 mainPage.clickCalculate()
 
                 // Expect the total sum of the summary values to be 100
-                mainPage.verifySumOfSummaryText(100)
+                let total = 0;
+
+                for(let i = 1; i <= mainPage.rows; i++){
+                    mainPage.getSummaryText(i).invoke('text').then(txt => {
+                        total += parseFloat(txt.slice(0,-1))
+
+                        if(i == mainPage.rows){
+                            cy.wrap(Math.round(total)).should('eq', 100)
+                        }
+                    })
+                }
             })
         })
     })

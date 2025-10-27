@@ -13,9 +13,9 @@ describe('Negative Testing', () => {
     it('should display an alert when I click Calculate and no odds have been entered', () => {
         
         // Check we have no odds entered
-        mainPage.getAllHorseInputs().forEach(input => {
-            input.should('have.value', '')
-        })
+        for(let i = 1; i <= mainPage.rows; i++){
+            mainPage.getHorseInput(i).should('have.value', '')
+        }
 
         // Click Calculate
         mainPage.clickCalculate()
@@ -29,9 +29,9 @@ describe('Negative Testing', () => {
     it('should display an alert when I click Calculate and only some odds have been entered', () => {
         
         // Check we have no odds entered
-        mainPage.getAllHorseInputs().forEach(input => {
-            input.should('have.value', '')
-        })
+        for(let i = 1; i <= mainPage.rows; i++){
+            mainPage.getHorseInput(i).should('have.value', '')
+        }
 
         // Enter some odds
         mainPage.getHorseInput(3).type('1')
@@ -49,9 +49,9 @@ describe('Negative Testing', () => {
     it('should display an alert when I click Calculate and invalid odds have been entered', () => {
         
         // Check we have no odds entered
-        mainPage.getAllHorseInputs().forEach(input => {
-            input.should('have.value', '')
-        })
+        for(let i = 1; i <= mainPage.rows; i++){
+            mainPage.getHorseInput(i).should('have.value', '')
+        }
 
         // Enter invalid odds
         mainPage.insertOdds(['ar4', 'khgfd5', 'wdhre', 'idhrsadf', '$$$', '!!!'])
