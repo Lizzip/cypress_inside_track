@@ -1,6 +1,6 @@
 # UI Automation Testing of Inside Track using Cypress 
 ## Overview
-This project is a UI-level test automation suite for [https://lizzip.net/insidetrack](https://lizzip.net/insidetrack) created using [https://www.cypress.io/](Cypress), JavaScript, Mochawesome, and ESLint.
+This project is a UI-level test automation suite for [Inside Track](https://lizzip.net/insidetrack) created using [Cypress](https://www.cypress.io/), JavaScript, Mochawesome, and ESLint.
 This is the first project I have created using Cypress, so while learning the tool I have cherry-picked which elements and practices are included. The main elements/practices I have encorporated where possible are: 
 - End To End Testing
 - Page Object Model 
