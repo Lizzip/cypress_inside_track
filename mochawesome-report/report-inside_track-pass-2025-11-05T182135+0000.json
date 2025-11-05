@@ -1,0 +1,297 @@
+{
+  "stats": {
+    "suites": 4,
+    "tests": 8,
+    "passes": 8,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-11-05T18:21:29.743Z",
+    "end": "2025-11-05T18:21:35.374Z",
+    "duration": 5631,
+    "testsRegistered": 8,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d84fe55b-9cc8-4000-892b-6a8bd00aa139",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\inside_track.cy.js",
+      "file": "cypress\\e2e\\tests\\inside_track.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a82da590-32a6-4f39-a03c-48ed9cf2663f",
+          "title": "Test Inside Track",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "1f71b201-3ca2-407c-bc8a-c5fb42c76486",
+              "title": "Check the page is displaying correctly on load",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should have Inside Track as the page title",
+                  "fullTitle": "Test Inside Track Check the page is displaying correctly on load should have Inside Track as the page title",
+                  "timedOut": null,
+                  "duration": 633,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "_main_page.default.title().should('include', 'Inside Track: True Odds Calculator');",
+                  "err": {},
+                  "uuid": "56930f60-9254-4309-bf18-97ddd755f054",
+                  "parentUUID": "1f71b201-3ca2-407c-bc8a-c5fb42c76486",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should display the Inside Track logo",
+                  "fullTitle": "Test Inside Track Check the page is displaying correctly on load should display the Inside Track logo",
+                  "timedOut": null,
+                  "duration": 385,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// The image should be visible and have completed loading\n_main_page.default.getLogoImg().should('be.visible').and('have.prop', 'complete', true);",
+                  "err": {},
+                  "uuid": "ae256891-bf51-4737-9578-e07277aa6aa7",
+                  "parentUUID": "1f71b201-3ca2-407c-bc8a-c5fb42c76486",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should display the Github footer",
+                  "fullTitle": "Test Inside Track Check the page is displaying correctly on load should display the Github footer",
+                  "timedOut": null,
+                  "duration": 49,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const footer = _main_page.default.getFooter();\n// Should display the expected text\nfooter.should('contain.text', 'Description on how this works and code can be found on GitHub');\n// Should have a link to Github\nfooter.find('a').should('have.attr', 'href').and('eq', 'https://github.com/Lizzip/inside_track');",
+                  "err": {},
+                  "uuid": "65cf7fc5-371c-4220-9da6-0bb475b073e0",
+                  "parentUUID": "1f71b201-3ca2-407c-bc8a-c5fb42c76486",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should default to empty inputs",
+                  "fullTitle": "Test Inside Track Check the page is displaying correctly on load should default to empty inputs",
+                  "timedOut": null,
+                  "duration": 390,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Check all horse inputs are empty on first page load\nfor (let i = 1; i <= _main_page.default.rows; i++) {\n  _main_page.default.getHorseInput(i).should('have.value', '');\n}\n// Insert text into some of the horse inputs\n_main_page.default.getHorseInput(1).type('12');\n_main_page.default.getHorseInput(2).type('8');\n// Reload the page\ncy.reload();\n// Check the inputs are empty again\n_main_page.default.getHorseInput(1).should('have.value', '');\n_main_page.default.getHorseInput(2).should('have.value', '');",
+                  "err": {},
+                  "uuid": "3de99f77-7286-48bb-8e15-314b80ccfffa",
+                  "parentUUID": "1f71b201-3ca2-407c-bc8a-c5fb42c76486",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "56930f60-9254-4309-bf18-97ddd755f054",
+                "ae256891-bf51-4737-9578-e07277aa6aa7",
+                "65cf7fc5-371c-4220-9da6-0bb475b073e0",
+                "3de99f77-7286-48bb-8e15-314b80ccfffa"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1457,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "271c3619-249f-418b-9521-ab3b9ba261df",
+              "title": "Check true odds are calculated and displaying correctly",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should display green text with accurate values when the odds are favourable",
+                  "fullTitle": "Test Inside Track Check true odds are calculated and displaying correctly should display green text with accurate values when the odds are favourable",
+                  "timedOut": null,
+                  "duration": 1002,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Insert values into all horse inputs \n_main_page.default.insertOdds(['4', '5', '10', '7', '7', '50']);\n_main_page.default.clickCalculate();\nconst expectedValues = ['27.5%', '22.92%', '12.5%', '17.19%', '17.19%', '2.7%'];\n// Verify each summary has the expected value, class, and colour \nexpectedValues.forEach((val, idx) => {\n  let summary = _main_page.default.getSummaryText(idx + 1);\n  summary.should('have.text', val).and('have.class', 'text-success').and('have.css', 'color', 'rgb(60, 118, 61)');\n});",
+                  "err": {},
+                  "uuid": "0cc2fb3c-0cc6-4b32-a7a3-0cb50cd94a93",
+                  "parentUUID": "271c3619-249f-418b-9521-ab3b9ba261df",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should display red text with accurate values when the odds are unfavourable",
+                  "fullTitle": "Test Inside Track Check true odds are calculated and displaying correctly should display red text with accurate values when the odds are unfavourable",
+                  "timedOut": null,
+                  "duration": 1007,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Insert values into all horse inputs \n_main_page.default.insertOdds(['2', '3', '8', '4', '8', '12']);\n_main_page.default.clickCalculate();\nconst expectedValues = ['30.79%', '23.1%', '10.26%', '18.48%', '10.26%', '7.11%'];\n// Verify each summary has the expected value, class, and colour \nexpectedValues.forEach((val, idx) => {\n  let summary = _main_page.default.getSummaryText(idx + 1);\n  summary.should('have.text', val).and('have.class', 'text-danger').and('have.css', 'color', 'rgb(169, 68, 66)');\n});",
+                  "err": {},
+                  "uuid": "0fc6d611-eb32-42dc-a21b-c4641ccab81b",
+                  "parentUUID": "271c3619-249f-418b-9521-ab3b9ba261df",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "0cc2fb3c-0cc6-4b32-a7a3-0cb50cd94a93",
+                "0fc6d611-eb32-42dc-a21b-c4641ccab81b"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 2009,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "29a5251d-6aaf-4fb9-83b6-27f19cba146e",
+              "title": "Check true odds total 100% when summed",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should show a total of 100% when favourable",
+                  "fullTitle": "Test Inside Track Check true odds total 100% when summed should show a total of 100% when favourable",
+                  "timedOut": null,
+                  "duration": 1052,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Insert random values which will provide a favourable outcome \nconst min = 6,\n  max = 15,\n  length = 6;\ncy.randomNums(min, max, length).then(randomOdds => {\n  // Insert the random values into all horse inputs \n  _main_page.default.insertOdds(randomOdds);\n  _main_page.default.clickCalculate();\n  // Expect the total sum of the summary values to be 100\n  let total = 0;\n  for (let i = 1; i <= _main_page.default.rows; i++) {\n    _main_page.default.getSummaryText(i).invoke('text').then(txt => {\n      total += parseFloat(txt.slice(0, -1));\n      if (i == _main_page.default.rows) {\n        cy.wrap(Math.round(total)).should('eq', 100);\n      }\n    });\n  }\n});",
+                  "err": {},
+                  "uuid": "cac260ef-d30c-459e-bcae-de2eac398cae",
+                  "parentUUID": "29a5251d-6aaf-4fb9-83b6-27f19cba146e",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should show a total of 100% when not favourable",
+                  "fullTitle": "Test Inside Track Check true odds total 100% when summed should show a total of 100% when not favourable",
+                  "timedOut": null,
+                  "duration": 978,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Insert random values which will provide an unfavourable outcome \nconst min = 2,\n  max = 5,\n  length = 6;\ncy.randomNums(min, max, length).then(randomOdds => {\n  // Insert the random values into all horse inputs \n  _main_page.default.insertOdds(randomOdds);\n  _main_page.default.clickCalculate();\n  // Expect the total sum of the summary values to be 100\n  let total = 0;\n  for (let i = 1; i <= _main_page.default.rows; i++) {\n    _main_page.default.getSummaryText(i).invoke('text').then(txt => {\n      total += parseFloat(txt.slice(0, -1));\n      if (i == _main_page.default.rows) {\n        cy.wrap(Math.round(total)).should('eq', 100);\n      }\n    });\n  }\n});",
+                  "err": {},
+                  "uuid": "0c086a75-6c2c-4061-9451-3f4c8e08cdcd",
+                  "parentUUID": "29a5251d-6aaf-4fb9-83b6-27f19cba146e",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "cac260ef-d30c-459e-bcae-de2eac398cae",
+                "0c086a75-6c2c-4061-9451-3f4c8e08cdcd"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 2030,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "report-[name]-[status]-[datetime]",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "html": false,
+        "json": true,
+        "reportFilename": "report-[name]-[status]-[datetime]",
+        "consoleReporter": "spec"
+      },
+      "version": "6.3.2"
+    }
+  }
+}

@@ -11,5 +11,13 @@ module.exports = defineConfig({
       })
     },
     baseUrl: "https://lizzip.net/",
+    screenshotOnRunFailure: true,
+  },
+  reporter: 'mochawesome',
+  reporterOptions: {
+    html: false,
+    json: true,
+    reportFilename: 'report-[name]-[status]-[datetime]',
+    consoleReporter: 'spec',
   },
 });

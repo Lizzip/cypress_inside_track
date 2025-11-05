@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-11-05T18:21:36.089Z",
+    "end": "2025-11-05T18:21:38.287Z",
+    "duration": 2198,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8a909b7b-7fdb-450b-9a5e-242f13482209",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\negative.cy.js",
+      "file": "cypress\\e2e\\tests\\negative.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2c955619-eee4-4a82-b0b5-e20008b2ec7f",
+          "title": "Negative Testing",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should display an alert when I click Calculate and no odds have been entered",
+              "fullTitle": "Negative Testing should display an alert when I click Calculate and no odds have been entered",
+              "timedOut": null,
+              "duration": 511,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Check we have no odds entered\nfor (let i = 1; i <= _main_page.default.rows; i++) {\n  _main_page.default.getHorseInput(i).should('have.value', '');\n}\n// Click Calculate\n_main_page.default.clickCalculate();\n// Verify the alert displays and with expected text\ncy.on('window:alert', alertText => {\n  expect(alertText).to.equal(\"Incorrect or missing odds\");\n});",
+              "err": {},
+              "uuid": "074513ab-c7ac-4f7c-a10b-836119b74f6f",
+              "parentUUID": "2c955619-eee4-4a82-b0b5-e20008b2ec7f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should display an alert when I click Calculate and only some odds have been entered",
+              "fullTitle": "Negative Testing should display an alert when I click Calculate and only some odds have been entered",
+              "timedOut": null,
+              "duration": 414,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Check we have no odds entered\nfor (let i = 1; i <= _main_page.default.rows; i++) {\n  _main_page.default.getHorseInput(i).should('have.value', '');\n}\n// Enter some odds\n_main_page.default.getHorseInput(3).type('1');\n_main_page.default.getHorseInput(5).type('7');\n// Click Calculate\n_main_page.default.clickCalculate();\n// Verify the alert displays and with expected text\ncy.on('window:alert', alertText => {\n  expect(alertText).to.equal(\"Incorrect or missing odds\");\n});",
+              "err": {},
+              "uuid": "41518b80-dafc-4ffc-a3d7-f40a7296f1cf",
+              "parentUUID": "2c955619-eee4-4a82-b0b5-e20008b2ec7f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should display an alert when I click Calculate and invalid odds have been entered",
+              "fullTitle": "Negative Testing should display an alert when I click Calculate and invalid odds have been entered",
+              "timedOut": null,
+              "duration": 1222,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Check we have no odds entered\nfor (let i = 1; i <= _main_page.default.rows; i++) {\n  _main_page.default.getHorseInput(i).should('have.value', '');\n}\n// Enter invalid odds\n_main_page.default.insertOdds(['ar4', 'khgfd5', 'wdhre', 'idhrsadf', '$$$', '!!!']);\n// Click Calculate\n_main_page.default.clickCalculate();\n// Verify the alert displays and with expected text\ncy.on('window:alert', alertText => {\n  expect(alertText).to.equal(\"Incorrect or missing odds\");\n});",
+              "err": {},
+              "uuid": "e263e032-4e96-4df0-8372-43a725ea98a3",
+              "parentUUID": "2c955619-eee4-4a82-b0b5-e20008b2ec7f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "074513ab-c7ac-4f7c-a10b-836119b74f6f",
+            "41518b80-dafc-4ffc-a3d7-f40a7296f1cf",
+            "e263e032-4e96-4df0-8372-43a725ea98a3"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2147,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "report-[name]-[status]-[datetime]",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "html": false,
+        "json": true,
+        "reportFilename": "report-[name]-[status]-[datetime]",
+        "consoleReporter": "spec"
+      },
+      "version": "6.3.2"
+    }
+  }
+}
