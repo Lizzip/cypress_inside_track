@@ -75,8 +75,8 @@ As mentioned previously this is my first go using Cypress and is testing a very 
 
 - Cucumber / BDD style testing
 - Docker integration
-- - A Dockerfile to allow the tests to run within a Docker container
-- - A Docker Compose file to allow cross-browser testing across multiple Docker containers  
+  - A Dockerfile to allow the tests to run within a Docker container
+  - A Docker Compose file to allow cross-browser testing across multiple Docker containers  
 - CI/CD Integration
-- - Either Jenkins or Github Actions
+  - Either Jenkins or Github Actions
 - Coverage Reports
